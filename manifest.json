@@ -1,0 +1,18 @@
+{
+  "description": "Test Dexie",
+  "manifest_version": 2,
+  "name": "dexie-bug",
+  "version": "1.0",
+  "permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "scripts": [
+      "background.bundle.js"
+    ]
+  },
+  "browser_action": {
+    "default_title": "Dexie"
+  },
+  "content_scripts": []
+}

@@ -1,0 +1,21 @@
+{
+  "name": "firefox-67-idb-bug",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "download-firefox": "[ -d firefox ] || (wget https://ftp.mozilla.org/pub/devedition/releases/67.0b11/linux-x86_64/en-US/firefox-67.0b11.tar.bz2 -O firefox67.tar.bz2 && tar xjvf firefox67.tar.bz2)",
+    "build": "rollup -c rollup.config.js",
+    "prebuild": "[ -d node_modules ] || npm ci",
+    "repro": "web-ext run --source-dir='.' --firefox ./firefox/firefox  --start-url 'about:debugging'",
+    "prerepro": "npm run download-firefox && npm run build"
+  },
+  "dependencies": {
+    "dexie": "^2.0.4"
+  },
+  "devDependencies": {
+    "rollup": "^1.10.0",
+    "rollup-plugin-commonjs": "^9.3.4",
+    "rollup-plugin-node-resolve": "^4.2.3",
+    "web-ext": "^3.0.0"
+  }
+}
